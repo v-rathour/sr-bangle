@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Products from './pages/Products';
 import AddProduct from './pages/AddProduct';
+import Profile from './pages/Profile';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products />} />
               <Route path="/add-product" element={<AddProduct />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
           <Footer />
