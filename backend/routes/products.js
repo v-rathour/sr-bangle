@@ -18,13 +18,26 @@ router.get('/', async (req, res) => {
 // Get single product
 router.get('/:id', async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate('addedBy', 'name email');
+    const productId = req.params.id;
+
+    // Validate product ID format (MongoDB ObjectId is 24 characters)
+    if (!productId || productId.length !== 24) {
+      return res.status(400).json({ message: 'Invalid product ID format' });
+    }
+
+    const product = await Product.findById(productId).populate('addedBy', 'name email');
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
     res.json(product);
   } catch (error) {
     console.error('Get product error:', error);
+    
+    // Handle invalid ObjectId
+    if (error.name === 'CastError') {
+      return res.status(400).json({ message: 'Invalid product ID format' });
+    }
+    
     res.status(500).json({ message: 'Server error fetching product' });
   }
 });
@@ -67,5 +80,4 @@ router.post('/', authenticate, isAdmin, async (req, res) => {
 });
 
 module.exports = router;
-
 

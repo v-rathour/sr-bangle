@@ -23,29 +23,23 @@
   z-index: 1001;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 60px;
+  padding: 0.5rem 0;
 }
 
 .logo-image {
   height: 50px;
   width: auto;
+  max-width: 200px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block;
 }
 
 .logo-image:hover {
   transform: scale(1.05);
-}
-
-.logo-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 2px;
-  font-family: 'Georgia', serif;
+  opacity: 0.9;
 }
 
 /* Hamburger Menu Icon */
@@ -159,12 +153,13 @@
     padding: 0 1rem;
   }
 
-  .logo-image {
-    height: 40px;
+  .navbar-logo {
+    height: 50px;
   }
 
-  .logo-text {
-    font-size: 1.5rem;
+  .logo-image {
+    height: 40px;
+    max-width: 150px;
   }
 
   .navbar-menu {
@@ -230,15 +225,13 @@
 }
 
 @media (max-width: 480px) {
+  .navbar-logo {
+    height: 45px;
+  }
+
   .logo-image {
     height: 35px;
-  }
-
-  .logo-text {
-    font-size: 1.3rem;
-  }
-
-  .navbar-menu {
-    padding: 4rem 0 2rem;
+    max-width: 120px;
   }
 }
+

@@ -71,6 +71,11 @@ const Products = () => {
                 <p className="product-description">{product.description}</p>
                 <div className="product-footer">
                   <span className="product-price">₹{product.price.toLocaleString()}</span>
+                  {product.addedBy && (
+                    <span className="product-owner">
+                      Added by {product.addedBy.name || 'Admin'}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -82,5 +87,4 @@ const Products = () => {
 };
 
 export default Products;
-
 

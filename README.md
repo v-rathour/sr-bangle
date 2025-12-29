@@ -156,3 +156,4 @@ The frontend will run on `http://localhost:3000`
 - User profile management
 - Product search and filtering
 - Product reviews and ratings
+

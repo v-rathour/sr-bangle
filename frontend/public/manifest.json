@@ -1,6 +1,6 @@
 {
-  "short_name": "S.R. Bangle",
-  "name": "S.R. Bangle - Elegant Bangles",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ffd700",
-  "background_color": "#1a1a2e"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

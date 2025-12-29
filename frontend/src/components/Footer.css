@@ -27,12 +27,15 @@
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .footer-logo-image {
   height: 60px;
   width: auto;
+  max-width: 200px;
   object-fit: contain;
+  display: block;
 }
 
 .footer-logo {
@@ -122,9 +125,13 @@
     gap: 1.5rem;
   }
 
+  .footer-logo-image {
+    height: 50px;
+    max-width: 150px;
+  }
+
   .footer-logo {
     font-size: 1.5rem;
   }
 }
-
 

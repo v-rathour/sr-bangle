@@ -35,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/sr-bangle?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.5';
+
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
