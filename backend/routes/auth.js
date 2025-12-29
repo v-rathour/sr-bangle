@@ -55,7 +55,24 @@ router.post('/signup', async (req, res) => {
     });
   } catch (error) {
     console.error('Signup error:', error);
-    res.status(500).json({ message: 'Server error during signup' });
+    
+    // Handle specific MongoDB errors
+    if (error.code === 11000) {
+      // Duplicate key error (email already exists)
+      return res.status(400).json({ message: 'User already exists with this email' });
+    }
+    
+    if (error.name === 'ValidationError') {
+      // Mongoose validation error
+      const errors = Object.values(error.errors).map(err => err.message);
+      return res.status(400).json({ message: errors.join(', ') });
+    }
+    
+    // Generic server error
+    res.status(500).json({ 
+      message: error.message || 'Server error during signup',
+      error: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
   }
 });
 

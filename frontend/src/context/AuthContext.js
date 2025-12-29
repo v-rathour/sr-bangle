@@ -54,9 +54,23 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       return { success: true };
     } catch (error) {
+      console.error('Login error:', error);
+      let errorMessage = 'Login failed';
+      
+      if (error.response) {
+        // Server responded with error
+        errorMessage = error.response.data?.message || `Server error: ${error.response.status}`;
+      } else if (error.request) {
+        // Request was made but no response received
+        errorMessage = 'Unable to connect to server. Please check your internet connection or try again later.';
+      } else {
+        // Something else happened
+        errorMessage = error.message || 'An unexpected error occurred';
+      }
+      
       return {
         success: false,
-        message: error.response?.data?.message || 'Login failed',
+        message: errorMessage,
       };
     }
   };
@@ -70,9 +84,23 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       return { success: true };
     } catch (error) {
+      console.error('Signup error:', error);
+      let errorMessage = 'Signup failed';
+      
+      if (error.response) {
+        // Server responded with error
+        errorMessage = error.response.data?.message || `Server error: ${error.response.status}`;
+      } else if (error.request) {
+        // Request was made but no response received
+        errorMessage = 'Unable to connect to server. Please check your internet connection or try again later.';
+      } else {
+        // Something else happened
+        errorMessage = error.message || 'An unexpected error occurred';
+      }
+      
       return {
         success: false,
-        message: error.response?.data?.message || 'Signup failed',
+        message: errorMessage,
       };
     }
   };
