@@ -26,7 +26,17 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <span className="logo-text">S.R. Bangle</span>
+          <img 
+            src="/logo.png" 
+            alt="S.R. Bangle" 
+            className="logo-image"
+            onError={(e) => {
+              // Fallback to text if image doesn't load
+              e.target.style.display = 'none';
+              e.target.nextElementSibling.style.display = 'inline';
+            }}
+          />
+          <span className="logo-text" style={{display: 'none'}}>S.R. Bangle</span>
         </Link>
         
         {/* Hamburger Menu Icon */}

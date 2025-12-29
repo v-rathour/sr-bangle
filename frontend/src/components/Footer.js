@@ -7,7 +7,18 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-logo">S.R. Bangle</h3>
+            <div className="footer-logo-container">
+              <img 
+                src="/logo.png" 
+                alt="S.R. Bangle" 
+                className="footer-logo-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'block';
+                }}
+              />
+              <h3 className="footer-logo" style={{display: 'none'}}>S.R. Bangle</h3>
+            </div>
             <p className="footer-description">
               Your trusted destination for elegant and beautiful bangles. 
               Discover timeless pieces that add grace to your style.

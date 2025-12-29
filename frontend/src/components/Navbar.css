@@ -21,6 +21,20 @@
   text-decoration: none;
   color: #fff;
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
 }
 
 .logo-text {
@@ -145,6 +159,10 @@
     padding: 0 1rem;
   }
 
+  .logo-image {
+    height: 40px;
+  }
+
   .logo-text {
     font-size: 1.5rem;
   }
@@ -212,6 +230,10 @@
 }
 
 @media (max-width: 480px) {
+  .logo-image {
+    height: 35px;
+  }
+
   .logo-text {
     font-size: 1.3rem;
   }

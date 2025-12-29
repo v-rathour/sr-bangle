@@ -23,6 +23,18 @@
   flex-direction: column;
 }
 
+.footer-logo-container {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-logo {
   font-size: 1.8rem;
   font-weight: 700;
